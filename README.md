@@ -24,11 +24,11 @@ Projeto e destinado a gerenciar a quantidade de convidados/acompanhantes de uma 
 * Execute os comandos no terminal da interface do vscode dentro do diretório raiz do projeto: `./mvnw clean compile package spring-boot:run`
 
 ## Funcionalidades contidas
-#### GET
+#### GET: [/convidados](http://localhost:8080/convidados)
 * Convidados -> Listar todos os convidados com a quantidade de acompanhantes informados pelo convidados.
 
-#### POST
+#### POST: [/convidado](http://localhost:8080/convidado)
 * Convidado -> Registra no banco de dados o nome do convidado e a quantidade de acompanhantes. 
 
-#### Autenticação
+#### Autenticação: [/login](http://localhost:8080/convidados)
 * Login -> Realiza a autenticidade de quem pode utilizar o sistemas. 
