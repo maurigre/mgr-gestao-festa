@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/base :: head('Login de usuário')}"></head>
+<body>
+<div class="container">
+
+<div class="card" style="margin: 0 auto; margin-top: 30px; width:500px;">
+		<div class="card-header">Login </div>
+            <form th:action="@{/login}" method="post" class="card-body">
+                    <div class="form-group">
+                        <input type="text" name="username" id="username" class="form-control input-lg"
+                               placeholder="UserName" required="true" autofocus="true"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" id="password" class="form-control input-lg"
+                               placeholder="Password" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                            <input type="submit" class="btn btn-primary" value="Logar"/>
+                    </div>
+            </form>
+        </div>
+</div>
+
+	<div th:replace="~{fragments/base :: footer-js}"></div>
+
+</body>
+</html>

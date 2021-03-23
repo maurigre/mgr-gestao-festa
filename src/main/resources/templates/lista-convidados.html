@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/base :: head('Lista de Convidados')}"></head>
+<body>
+	<div th:replace="fragments/base :: menu"></div>
+
+	<div class="card" style="margin: 10px">
+		<div class="card-header">Lista de Convidados</div>
+		<div class="card-body">
+			<form th:action="@{/convidados}" method="POST"
+				th:object="${requisicaoNovoConvidado}">
+
+  					<div class="form-row ">
+  					<div class="col-auto my-1">
+						<div class="form-group">
+							<label for="nomeConvidado" class="mr-sm-2">Nome do Convidado</label> 
+							<input th:field="*{nomeConvidado}" th:errorClass="is-invalid" class="form-control" placeholder="nome do convidado" />
+							<div th:errors="*{nomeConvidado}" class="invalid-feedback">Erros do nome do convidado</div>
+						</div>
+					</div>
+					<div class="col-auto my-1">
+						<div class="form-group">
+							<label for="quantidadeAcompanhantes" class="mr-sm-2">Quantidade de Acompanhantes</label> 
+							<input th:field="*{quantidadeAcompanhantes}" th:errorClass="is-invalid" class="form-control" placeholder="quantidade de acompanhates" />
+							<div th:errors="*{quantidadeAcompanhantes}" class="invalid-feedback">Erros da quantidade de acompanhantes</div>
+						</div>
+					</div>
+					<div class="col-auto my-1" style="padding-top:31px">
+						<button type="submit" class="btn btn-primary">Adicionar</button>
+					</div>
+				</div>
+		</div>
+		</form>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Acompanhantes</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="convidado : ${convidados}">
+					<td th:text="${convidado.nome}"></td>
+					<td th:text="${convidado.quantidadeAcompanhantes}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</div>
+	<div th:replace="~{fragments/base :: footer-js}"></div>
+</body>
+</html>

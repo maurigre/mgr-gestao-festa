@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
 
 @Entity
 @Table(name = "convidados_tbl")
@@ -18,6 +20,7 @@ public class Convidado implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
+	@NotNull
 	private Integer quantidadeAcompanhantes;
 	
 	
@@ -39,6 +42,9 @@ public class Convidado implements Serializable {
 	public void setQuantidadeAcompanhantes(Integer quantidadeAcompanhantes) {
 		this.quantidadeAcompanhantes = quantidadeAcompanhantes;
 	}
+	
+	
+	
 	@Override
 	public String toString() {
 		return "Convidado [id=" + id + ", nome=" + nome + ", quantidadeAcompanhantes=" + quantidadeAcompanhantes + "]";
